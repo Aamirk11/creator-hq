@@ -38,10 +38,10 @@ const itemFade = {
 
 export function PlatformBar() {
   return (
-    <section className="relative border-y border-[#E2E8F0] bg-white py-8 sm:py-10">
+    <section className="relative border-y border-[#E2E8F0] bg-white py-5 sm:py-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.p
-          className="mb-6 text-center text-sm font-medium text-[#64748B]"
+          className="mb-4 text-center text-xs font-medium text-[#64748B]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}

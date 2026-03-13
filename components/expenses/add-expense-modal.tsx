@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { ExpenseCategory } from "@/lib/types";
+import { toast } from "sonner";
 
 const categoryOptions: { label: string; value: ExpenseCategory }[] = [
   { label: "Software", value: "software" },
@@ -43,7 +44,7 @@ export function AddExpenseModal({ children }: AddExpenseModalProps) {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Mock save — just close the dialog
+    toast.success(`Added "${name}" — $${amount}`);
     setOpen(false);
     setName("");
     setAmount("");

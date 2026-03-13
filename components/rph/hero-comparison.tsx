@@ -20,28 +20,28 @@ export function HeroComparison() {
 
   return (
     <div className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {/* TikTok Card */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Card className="relative overflow-hidden border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-8 shadow-lg shadow-emerald-500/5">
+          <Card className="relative overflow-hidden border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-5 shadow-lg shadow-emerald-500/5">
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-[#00F2EA]" />
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#00F2EA]" />
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   TikTok
                 </span>
               </div>
-              <p className={cn("text-6xl md:text-7xl font-black tracking-tight", getRphColor(tiktokAvg))}>
+              <p className={cn("text-5xl md:text-6xl font-black tracking-tight", getRphColor(tiktokAvg))}>
                 {formatCurrency(tiktokAvg)}
-                <span className="text-2xl md:text-3xl font-semibold text-muted-foreground">/hr</span>
+                <span className="text-xl md:text-2xl font-semibold text-muted-foreground">/hr</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-3">
+              <p className="text-xs text-muted-foreground mt-2">
                 Average across {tiktokCount} pieces
               </p>
             </div>
@@ -54,19 +54,19 @@ export function HeroComparison() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
         >
-          <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-muted/30 to-muted/50 p-8 shadow-sm">
+          <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-muted/30 to-muted/50 p-5 shadow-sm">
             <div className="relative">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-[#FF0000]" />
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#FF0000]" />
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   YouTube
                 </span>
               </div>
-              <p className={cn("text-6xl md:text-7xl font-black tracking-tight", getRphColor(youtubeAvg))}>
+              <p className={cn("text-5xl md:text-6xl font-black tracking-tight", getRphColor(youtubeAvg))}>
                 {formatCurrency(youtubeAvg)}
-                <span className="text-2xl md:text-3xl font-semibold text-muted-foreground">/hr</span>
+                <span className="text-xl md:text-2xl font-semibold text-muted-foreground">/hr</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-3">
+              <p className="text-xs text-muted-foreground mt-2">
                 Average across {youtubeCount} pieces
               </p>
             </div>

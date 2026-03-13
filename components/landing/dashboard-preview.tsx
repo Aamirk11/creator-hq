@@ -51,14 +51,14 @@ const sidebarItems = [0, 1, 2, 3, 4];
 
 export function DashboardPreview() {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden">
+    <section className="relative py-16 sm:py-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-50/60 via-white/40 to-white pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -75,7 +75,7 @@ export function DashboardPreview() {
 
         {/* Dashboard mockup */}
         <motion.div
-          className="mx-auto max-w-4xl"
+          className="mx-auto max-w-3xl"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

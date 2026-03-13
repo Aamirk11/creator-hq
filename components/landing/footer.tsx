@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { GradientText } from "@/components/shared";
+import { toast } from "sonner";
 
 const FOOTER_COLUMNS = [
   {
@@ -14,36 +17,24 @@ const FOOTER_COLUMNS = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
+      { label: "About", href: "#", comingSoon: true },
+      { label: "Blog", href: "#", comingSoon: true },
+      { label: "Careers", href: "#", comingSoon: true },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: "Privacy", href: "#", comingSoon: true },
+      { label: "Terms", href: "#", comingSoon: true },
     ],
   },
   {
     title: "Connect",
     links: [
-      {
-        label: "Twitter",
-        href: "https://twitter.com/creatorhq",
-        external: true,
-      },
-      {
-        label: "Instagram",
-        href: "https://instagram.com/creatorhq",
-        external: true,
-      },
-      {
-        label: "YouTube",
-        href: "https://youtube.com/@creatorhq",
-        external: true,
-      },
+      { label: "Twitter", href: "#", comingSoon: true },
+      { label: "Instagram", href: "#", comingSoon: true },
+      { label: "YouTube", href: "#", comingSoon: true },
     ],
   },
 ];
@@ -73,15 +64,13 @@ export function Footer() {
               <ul className="mt-3 flex flex-col gap-2.5">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    {"external" in link && link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {"comingSoon" in link && link.comingSoon ? (
+                      <button
+                        onClick={() => toast.info("Coming soon!")}
                         className="text-sm text-[#64748B] transition-colors hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </button>
                     ) : (
                       <Link
                         href={link.href}

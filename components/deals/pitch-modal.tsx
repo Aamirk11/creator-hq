@@ -16,7 +16,8 @@ import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { formatNumber } from "@/lib/utils/format";
 import { getPlatformLabel } from "@/lib/utils/format";
 import { BrandDeal } from "@/lib/types";
-import { Copy, Check, Users, TrendingUp, Palette } from "lucide-react";
+import { Copy, Check, Send, Users, TrendingUp, Palette } from "lucide-react";
+import { toast } from "sonner";
 
 interface PitchModalProps {
   brandDeal: BrandDeal | null;
@@ -102,8 +103,14 @@ export function PitchModal({ brandDeal, open, onOpenChange }: PitchModalProps) {
   const handleCopy = async () => {
     const fullEmail = `Subject: ${subject}\n\n${body}`;
     await navigator.clipboard.writeText(fullEmail);
+    toast.success("Pitch copied to clipboard!");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleSend = () => {
+    toast.success(`Pitch sent to ${brandDeal?.contactName ?? brandDeal?.brandName ?? "the brand"}!`);
+    onOpenChange(false);
   };
 
   if (!brandDeal) return null;
@@ -214,11 +221,11 @@ export function PitchModal({ brandDeal, open, onOpenChange }: PitchModalProps) {
           </div>
         </div>
 
-        {/* Bottom: Copy button */}
-        <div className="flex justify-end mt-4">
+        {/* Bottom: Copy + Send buttons */}
+        <div className="flex justify-end gap-2 mt-4">
           <Button
+            variant="outline"
             onClick={handleCopy}
-            className="bg-[#7C3AED] hover:bg-[#7C3AED]/90 text-white"
           >
             {copied ? (
               <>
@@ -231,6 +238,13 @@ export function PitchModal({ brandDeal, open, onOpenChange }: PitchModalProps) {
                 Copy to Clipboard
               </>
             )}
+          </Button>
+          <Button
+            onClick={handleSend}
+            className="bg-[#7C3AED] hover:bg-[#7C3AED]/90 text-white"
+          >
+            <Send className="w-4 h-4 mr-2" />
+            Send Pitch
           </Button>
         </div>
       </DialogContent>

@@ -30,7 +30,7 @@ export default function DealsPage() {
         description="Find brands, pitch, and track partnerships"
       />
 
-      <Tabs defaultValue="recommended" className="space-y-6">
+      <Tabs defaultValue="recommended" className="space-y-4">
         <TabsList>
           <TabsTrigger value="recommended" className="gap-1.5">
             <Handshake className="w-4 h-4" />
@@ -44,7 +44,7 @@ export default function DealsPage() {
 
         {/* Recommended View */}
         <TabsContent value="recommended">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {/* Deal cards grid */}
             <div className="lg:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

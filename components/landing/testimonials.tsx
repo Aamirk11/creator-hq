@@ -74,7 +74,7 @@ export function Testimonials() {
   const metricsInView = useInView(metricsRef, { once: true, margin: "-40px" });
 
   return (
-    <section className="bg-[#FAFAFA] py-20 sm:py-28">
+    <section className="bg-[#FAFAFA] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">

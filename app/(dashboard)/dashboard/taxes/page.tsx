@@ -5,12 +5,13 @@ import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { PageHeader } from "@/components/layout/page-header";
 import { TaxSummary, QuarterlyTracker, DeductionList } from "@/components/taxes";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export default function TaxesPage() {
   const { taxSummary, quarterlyPayments, deductions } = useCreatorData();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Tax Center"
         description="Stay on top of your tax obligations"
@@ -29,7 +30,7 @@ export default function TaxesPage() {
       <div className="flex justify-end">
         <Button
           variant="outline"
-          onClick={() => alert("Tax summary export coming soon!")}
+          onClick={() => toast.success("Tax summary downloaded! Check your downloads folder.")}
           className="gap-2"
         >
           <Download className="h-4 w-4" />

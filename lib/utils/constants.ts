@@ -9,11 +9,11 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const MOBILE_NAV_ITEMS = [
-  { label: "Home", href: "/dashboard", icon: "LayoutDashboard" },
-  { label: "$/Hour", href: "/dashboard/revenue-per-hour", icon: "Clock" },
-  { label: "Deals", href: "/dashboard/deals", icon: "Handshake" },
-  { label: "Taxes", href: "/dashboard/taxes", icon: "Receipt" },
-  { label: "More", href: "/dashboard/expenses", icon: "Menu" },
+  { label: "Home", href: "/dashboard", icon: "LayoutDashboard", isMenu: false },
+  { label: "$/Hour", href: "/dashboard/revenue-per-hour", icon: "Clock", isMenu: false },
+  { label: "Deals", href: "/dashboard/deals", icon: "Handshake", isMenu: false },
+  { label: "Taxes", href: "/dashboard/taxes", icon: "Receipt", isMenu: false },
+  { label: "More", href: "", icon: "Menu", isMenu: true },
 ] as const;
 
 export const PRICING_TIERS = [

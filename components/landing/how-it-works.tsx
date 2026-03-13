@@ -59,7 +59,7 @@ const stepReveal = {
 
 export function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA] py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-[#FAFAFA] py-16 sm:py-20">
       {/* Background accent */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-gradient-to-br from-[#7C3AED]/5 via-[#EC4899]/3 to-transparent blur-3xl" />
 

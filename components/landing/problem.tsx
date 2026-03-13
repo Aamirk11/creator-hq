@@ -56,7 +56,7 @@ const fadeUp = {
 
 export function Problem() {
   return (
-    <section className="relative bg-[#0F172A] py-20 sm:py-28">
+    <section className="relative bg-[#0F172A] py-16 sm:py-20">
       {/* Subtle top gradient blend */}
       <div className="pointer-events-none absolute inset-x-0 -top-1 h-24 bg-gradient-to-b from-[#FAFAFA] to-transparent" />
 
@@ -76,7 +76,7 @@ export function Problem() {
 
         {/* Pain point cards */}
         <motion.div
-          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
@@ -87,7 +87,7 @@ export function Problem() {
               key={title}
               variants={cardVariants}
               className={cn(
-                "group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm",
+                "group relative rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 backdrop-blur-sm",
                 "transition-colors hover:border-[#7C3AED]/40 hover:bg-white/[0.08]"
               )}
             >
@@ -109,7 +109,7 @@ export function Problem() {
 
         {/* Closing line */}
         <motion.p
-          className="mt-14 text-center text-lg font-semibold text-white sm:text-xl"
+          className="mt-10 text-center text-lg font-semibold text-white sm:text-xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}

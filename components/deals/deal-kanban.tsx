@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/utils/format";
 import { BrandDeal, DealStatus } from "@/lib/types";
 import { Clock, FileText } from "lucide-react";
+import { toast } from "sonner";
 
 const columns: { status: DealStatus; label: string; color: string }[] = [
   { status: "prospect", label: "Prospect", color: "bg-muted" },
@@ -28,7 +29,10 @@ interface DealKanbanProps {
 
 function KanbanCard({ deal }: { deal: BrandDeal }) {
   return (
-    <Card className="p-3 hover:shadow-sm transition-shadow cursor-pointer">
+    <Card
+      className="p-3 hover:shadow-sm transition-shadow cursor-pointer"
+      onClick={() => toast.info("Drag & drop coming soon! Click 'Draft Pitch' on the card to take action.")}
+    >
       <div className="flex items-center gap-2.5 mb-2">
         <div
           className={cn(

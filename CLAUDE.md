@@ -3,7 +3,7 @@
 SaaS business operating system for independent content creators. Core insight: no tool shows creators their revenue per hour of work invested.
 
 ## Stack
-- Next.js 14+ App Router, TypeScript, Tailwind CSS, shadcn/ui, Recharts, Framer Motion, Inter font
+- Next.js 16 App Router, TypeScript, Tailwind CSS, shadcn/ui, Recharts, Framer Motion, Sonner (toasts), Inter font
 
 ## Design System
 - Primary: #7C3AED (electric purple)
@@ -20,13 +20,24 @@ SaaS business operating system for independent content creators. Core insight: n
 - Mock data in lib/mock-data/, types in lib/types/
 - shadcn primitives in components/ui/, feature components in feature dirs
 - Use `cn()` from lib/utils for conditional classes
-- All monetary values stored in cents internally, displayed as dollars
+- Use `toast` from `sonner` for user feedback on all actions
+- All interactive buttons must provide feedback (toast, state change, or navigation)
+- Spacing: compact/dense dashboard layout — avoid excessive padding
+- Mobile: all pages must be accessible from mobile nav
 
 ## Route Map
 - / — Landing page (marketing)
+- /onboarding — First-time user onboarding flow
 - /dashboard — Revenue overview
 - /dashboard/revenue-per-hour — KILLER FEATURE
 - /dashboard/deals — Brand deal finder
 - /dashboard/taxes — Tax center
 - /dashboard/expenses — Expense tracker
 - /dashboard/settings — Platform connections
+
+## Component Patterns
+- Forms: use controlled state, toast on submit, clear on success
+- Modals: controlled via parent state, always have close mechanism
+- Charts: wrap in explicit-height container, Recharts needs "use client"
+- Animations: Framer Motion for page transitions, scroll reveals, counters
+- SVG Logo: components/shared/logo.tsx — use everywhere for brand consistency

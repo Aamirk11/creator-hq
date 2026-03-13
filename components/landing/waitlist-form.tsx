@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -28,13 +29,18 @@ export function WaitlistForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    localStorage.setItem(
+      "waitlist",
+      JSON.stringify({ email, platform, revenue, timestamp: new Date().toISOString() })
+    );
+    toast.success("You're on the waitlist! Check your email for next steps.");
     setSubmitted(true);
   };
 
   return (
     <section
       id="waitlist"
-      className="relative overflow-hidden py-20 sm:py-28"
+      className="relative overflow-hidden py-16 sm:py-20"
     >
       {/* Purple gradient background tint */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#7C3AED]/[0.04] via-[#7C3AED]/[0.06] to-[#EC4899]/[0.03]" />

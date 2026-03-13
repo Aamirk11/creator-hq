@@ -15,7 +15,7 @@ export default function ExpensesPage() {
   const { expenses, subscriptions } = useCreatorData();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <PageHeader
         title="Expenses"
         description="Track spending and never miss a deduction"

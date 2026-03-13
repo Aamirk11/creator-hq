@@ -11,8 +11,6 @@ const painPoints = [
   "No idea which content is worth your time",
   "Guessing your tax obligations every quarter",
   "Underselling yourself on brand deals",
-  "Tracking expenses in messy spreadsheets",
-  "Working more hours for less money",
 ];
 
 const benefits = [
@@ -20,8 +18,6 @@ const benefits = [
   "Revenue per hour for every piece of content",
   "Quarterly tax estimates calculated automatically",
   "Rate calculator shows your true market value",
-  "One-click expense tracking with receipt scanning",
-  "Work smarter: focus on your highest-earning content",
 ];
 
 const fadeLeft = {
@@ -67,7 +63,7 @@ export function BeforeAfter() {
   return (
     <section
       id="before-after"
-      className="relative overflow-hidden bg-gradient-to-b from-[#F5F0FF] to-white py-20 sm:py-28"
+      className="relative overflow-hidden bg-gradient-to-b from-[#F5F0FF] to-white py-16 sm:py-20"
     >
       {/* Background accents */}
       <div className="pointer-events-none absolute left-0 top-0 h-[350px] w-[400px] rounded-full bg-gradient-to-br from-rose-500/5 via-transparent to-transparent blur-3xl" />
@@ -79,7 +75,7 @@ export function BeforeAfter() {
           variants={fadeUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-14 text-center"
+          className="mb-10 text-center"
         >
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#7C3AED]">
             The transformation
@@ -118,7 +114,7 @@ export function BeforeAfter() {
                 </h3>
               </div>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {painPoints.map((point, i) => (
                   <motion.li
                     key={point}
@@ -168,7 +164,7 @@ export function BeforeAfter() {
                 </h3>
               </div>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {benefits.map((point, i) => (
                   <motion.li
                     key={point}

@@ -143,8 +143,8 @@ export function ContentTable({
           </TableHeader>
           <TableBody>
             {sorted.map((piece) => (
-              <TableRow key={piece.id} className="group">
-                <TableCell className="font-medium max-w-[280px]">
+              <TableRow key={piece.id} className="group hover:bg-muted/50">
+                <TableCell className="font-medium max-w-[280px] py-2">
                   <div className="flex items-center gap-2">
                     <div
                       className="w-2 h-2 rounded-full flex-shrink-0"
@@ -153,10 +153,10 @@ export function ContentTable({
                     <span className="truncate">{piece.title}</span>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="py-2">
                   <Badge
                     variant="secondary"
-                    className="text-xs font-medium"
+                    className="text-[11px] font-medium px-1.5 py-0"
                     style={{
                       backgroundColor: `${getPlatformColor(piece.platform)}15`,
                       color: getPlatformColor(piece.platform),
@@ -165,19 +165,19 @@ export function ContentTable({
                     {getPlatformLabel(piece.platform)}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right tabular-nums text-muted-foreground">
+                <TableCell className="text-right tabular-nums text-muted-foreground py-2">
                   {piece.hoursSpent}h
                 </TableCell>
-                <TableCell className="text-right tabular-nums">
+                <TableCell className="text-right tabular-nums py-2">
                   {formatCurrency(piece.revenue)}
                 </TableCell>
-                <TableCell className={cn("text-right tabular-nums font-bold", getRphColor(piece.revenuePerHour))}>
+                <TableCell className={cn("text-right tabular-nums font-bold text-base", getRphColor(piece.revenuePerHour))}>
                   {formatCurrency(piece.revenuePerHour)}
                 </TableCell>
-                <TableCell className="text-right tabular-nums text-muted-foreground">
+                <TableCell className="text-right tabular-nums text-muted-foreground py-2">
                   {formatNumber(piece.views)}
                 </TableCell>
-                <TableCell className="text-right tabular-nums text-muted-foreground text-sm">
+                <TableCell className="text-right tabular-nums text-muted-foreground text-xs py-2">
                   {new Date(piece.publishedAt).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",

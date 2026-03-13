@@ -14,8 +14,8 @@ export default function DashboardPage() {
   const { creator, dashboardStats } = useCreatorData();
 
   return (
-    <div className="space-y-6">
-      <PageHeader title="Dashboard" description="Welcome back, Maya" />
+    <div className="space-y-4">
+      <PageHeader title="Dashboard" description={`Welcome back, ${creator.name.split(" ")[0]}`} />
 
       {/* Stat Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

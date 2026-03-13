@@ -19,12 +19,12 @@ export function StatCard({ label, value, change, prefix, suffix }: StatCardProps
   return (
     <Card
       className={cn(
-        "transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+        "transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 border-l-2 border-l-[#7C3AED]"
       )}
     >
-      <CardContent className="pt-1">
-        <p className="text-sm text-muted-foreground mb-1">{label}</p>
-        <div className="text-2xl font-bold tracking-tight text-[#0F172A]">
+      <CardContent className="p-4">
+        <p className="text-xs text-muted-foreground mb-0.5">{label}</p>
+        <div className="text-xl font-bold tracking-tight text-[#0F172A]">
           <AnimatedCounter
             value={value}
             prefix={prefix}
@@ -33,7 +33,7 @@ export function StatCard({ label, value, change, prefix, suffix }: StatCardProps
         </div>
         <div
           className={cn(
-            "flex items-center gap-1 mt-2 text-sm font-medium",
+            "flex items-center gap-1 mt-1.5 text-xs font-semibold",
             isPositive ? "text-[#10B981]" : "text-[#F43F5E]"
           )}
         >

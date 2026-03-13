@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Eye, Clock, DollarSign, Quote } from "lucide-react";
+import { ArrowRight, Eye, Clock, DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GradientText } from "@/components/shared";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,7 @@ export function RphShowcase() {
   return (
     <section
       id="rph-showcase"
-      className="relative overflow-hidden bg-gradient-to-b from-white to-[#F5F0FF] py-20 sm:py-28"
+      className="relative overflow-hidden bg-gradient-to-b from-white to-[#F5F0FF] py-16 sm:py-20"
     >
       {/* Background accents */}
       <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[500px] rounded-full bg-gradient-to-tl from-[#7C3AED]/5 via-[#EC4899]/5 to-transparent blur-3xl" />
@@ -63,7 +63,7 @@ export function RphShowcase() {
 
         {/* Comparison cards */}
         <motion.div
-          className="mx-auto mt-14 grid max-w-4xl grid-cols-1 items-stretch gap-6 sm:grid-cols-[1fr_auto_1fr]"
+          className="mx-auto mt-10 grid max-w-4xl grid-cols-1 items-stretch gap-6 sm:grid-cols-[1fr_auto_1fr]"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
@@ -169,33 +169,13 @@ export function RphShowcase() {
           </motion.div>
         </motion.div>
 
-        {/* Quote callout */}
-        <motion.div
-          className="mx-auto mt-12 max-w-2xl rounded-2xl border border-[#7C3AED]/10 bg-white/80 px-8 py-6 shadow-sm backdrop-blur-sm"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeUp}
-          custom={3}
-        >
-          <div className="flex gap-4">
-            <Quote className="mt-1 size-6 flex-shrink-0 text-[#7C3AED]/30" />
-            <p className="text-base leading-relaxed text-[#0F172A]">
-              When Maya saw this, she shifted 2 YouTube deep-dives to 8
-              TikToks. She freed up{" "}
-              <span className="font-bold">40 hours</span> and earned{" "}
-              <GradientText className="font-bold">$6,700 more</GradientText>{" "}
-              that month.
-            </p>
-          </div>
-        </motion.div>
-
         {/* CTA */}
         <motion.div
           className="mt-10 flex justify-center"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeUp}
-          custom={4}
+          custom={3}
         >
           <Button
             size="lg"

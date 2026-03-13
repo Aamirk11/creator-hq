@@ -39,7 +39,7 @@ const floatAnimation = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA] pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section className="relative overflow-hidden bg-[#FAFAFA] pt-28 pb-16 sm:pt-36 sm:pb-20">
       {/* Subtle gradient orb background */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-gradient-to-br from-[#7C3AED]/10 via-[#EC4899]/5 to-transparent blur-3xl" />
 
@@ -91,7 +91,7 @@ export function Hero() {
 
           {/* Animated platform revenue counters — live dashboard feel */}
           <motion.div
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
+            className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-6"
             initial="hidden"
             animate="visible"
             variants={fadeUp}
@@ -173,7 +173,7 @@ export function Hero() {
 
         {/* Floating mock dashboard card */}
         <motion.div
-          className="pointer-events-none absolute -right-8 top-24 hidden lg:block"
+          className="pointer-events-none absolute right-0 top-24 hidden lg:block"
           initial="initial"
           animate="animate"
           variants={floatAnimation}
@@ -204,7 +204,7 @@ export function Hero() {
 
         {/* Secondary floating card — left side */}
         <motion.div
-          className="pointer-events-none absolute -left-4 top-48 hidden lg:block"
+          className="pointer-events-none absolute left-0 top-48 hidden lg:block"
           initial="initial"
           animate="animate"
           variants={{

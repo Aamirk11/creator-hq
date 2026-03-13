@@ -74,7 +74,7 @@ export function RevenueChart() {
         <CardDescription>Last 12 months</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="h-[350px] w-full">
+        <div className="h-[300px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={monthlyRevenue} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
               <defs>
@@ -85,7 +85,7 @@ export function RevenueChart() {
                   </linearGradient>
                 ))}
               </defs>
-              <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+              <CartesianGrid strokeDasharray="3 3" className="stroke-muted" strokeOpacity={0.4} />
               <XAxis
                 dataKey="label"
                 tick={{ fontSize: 12 }}
