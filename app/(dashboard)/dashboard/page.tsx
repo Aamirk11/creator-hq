@@ -16,11 +16,11 @@ export default function DashboardPage() {
 
   return (
     <PageTransition>
-    <div className="space-y-4">
+    <div className="space-y-6">
       <PageHeader title="Dashboard" description={`Welcome back, ${creator.name.split(" ")[0]}`} />
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {dashboardStats.map((stat) => (
           <StatCard
             key={stat.label}
@@ -34,10 +34,14 @@ export default function DashboardPage() {
       </div>
 
       {/* Revenue Chart */}
-      <RevenueChart />
+      <div>
+        <h2 className="text-sm font-semibold text-[#64748B] uppercase tracking-wider mb-3">Revenue Trends</h2>
+        <RevenueChart />
+      </div>
 
       {/* Revenue by Source + Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <h2 className="text-sm font-semibold text-[#64748B] uppercase tracking-wider mb-3">Breakdown</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
         <div className="lg:col-span-3">
           <RevenueBySource />
         </div>
@@ -47,7 +51,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Platform Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <h2 className="text-sm font-semibold text-[#64748B] uppercase tracking-wider mb-3">Connected Platforms</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {creator.platforms
           .filter((p) => p.connected)
           .map((platform) => (

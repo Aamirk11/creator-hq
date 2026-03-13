@@ -111,7 +111,7 @@ export function Navbar() {
               <Button
                 asChild
                 className={cn(
-                  "rounded-full bg-[#7C3AED] px-5 text-white hover:bg-[#6D28D9] transition-all duration-300",
+                  "rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] px-5 text-white hover:brightness-110 transition-all duration-300",
                   pastHero && "px-6 font-semibold shadow-lg shadow-[#7C3AED]/25"
                 )}
               >
@@ -155,7 +155,7 @@ export function Navbar() {
                 <hr className="border-[#E2E8F0]" />
                 <Button
                   asChild
-                  className="mt-2 w-full rounded-full bg-[#7C3AED] text-white hover:bg-[#6D28D9] font-semibold"
+                  className="mt-2 w-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white hover:brightness-110 font-semibold"
                 >
                   <a href="#waitlist" onClick={() => setOpen(false)}>
                     Join Waitlist

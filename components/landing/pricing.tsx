@@ -214,7 +214,7 @@ export function Pricing() {
                   "relative flex flex-col rounded-2xl border bg-white p-6 transition-shadow duration-300",
                   tier.popular
                     ? "pro-card-glow border-transparent shadow-xl shadow-[#7C3AED]/10 lg:scale-105 lg:z-10"
-                    : "border-[#E2E8F0] hover:shadow-lg"
+                    : "border-[#E2E8F0] shadow-sm hover:shadow-lg"
                 )}
               >
                 {/* Popular badge */}

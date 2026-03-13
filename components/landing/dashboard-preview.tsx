@@ -51,7 +51,7 @@ const sidebarItems = [0, 1, 2, 3, 4];
 
 export function DashboardPreview() {
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden">
+    <section className="relative py-16 sm:py-20 overflow-hidden bg-[#F8FAFC]">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-50/60 via-white/40 to-white pointer-events-none" />
 
@@ -82,9 +82,9 @@ export function DashboardPreview() {
           viewport={{ once: true, margin: "-60px" }}
         >
           <div
-            className="rounded-2xl border border-[#E2E8F0] bg-white overflow-hidden transition-transform duration-500 ease-out"
+            className="rounded-2xl border border-[#E2E8F0] bg-white overflow-hidden shadow-2xl transition-transform duration-500 ease-out"
             style={{
-              boxShadow: "0 20px 60px -15px rgba(124,58,237,0.3), 0 8px 24px -8px rgba(0,0,0,0.08)",
+              boxShadow: "0 25px 65px -15px rgba(124,58,237,0.35), 0 10px 30px -8px rgba(0,0,0,0.12)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "perspective(1200px) rotateX(2deg) rotateY(-1deg) scale(1.01)";

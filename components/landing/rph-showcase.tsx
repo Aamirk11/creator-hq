@@ -134,7 +134,7 @@ export function RphShowcase() {
           <motion.div
             variants={fadeUp}
             custom={2}
-            className="relative overflow-hidden rounded-2xl border border-[#E2E8F0] bg-[#FAFAFA] p-8"
+            className="relative overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-lg"
           >
             <div className="relative flex h-full flex-col">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#64748B]/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#94A3B8]">

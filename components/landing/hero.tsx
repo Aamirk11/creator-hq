@@ -39,7 +39,7 @@ const floatAnimation = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA] pt-28 pb-16 sm:pt-36 sm:pb-20">
+    <section className="relative overflow-hidden bg-[#FAFAFA] pt-32 pb-20 sm:pt-40 sm:pb-24">
       {/* Animated aurora gradient mesh background */}
       <div className="pointer-events-none absolute inset-0">
         <div

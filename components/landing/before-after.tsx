@@ -97,7 +97,7 @@ export function BeforeAfter() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             className={cn(
-              "rounded-2xl border border-rose-200/60 bg-gradient-to-br from-rose-50/80 via-white to-rose-50/40 p-6 shadow-sm sm:p-8",
+              "rounded-2xl border border-[#FECACA] bg-[#FEF2F2] p-6 shadow-sm sm:p-8",
               "relative overflow-hidden"
             )}
           >
@@ -147,7 +147,7 @@ export function BeforeAfter() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             className={cn(
-              "rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/80 via-white to-emerald-50/40 p-6 shadow-sm sm:p-8",
+              "rounded-2xl border border-[#BBF7D0] bg-[#F0FDF4] p-6 shadow-sm sm:p-8",
               "relative overflow-hidden"
             )}
           >

@@ -74,7 +74,7 @@ export function Testimonials() {
   const metricsInView = useInView(metricsRef, { once: true, margin: "-40px" });
 
   return (
-    <section className="bg-[#FAFAFA] py-16 sm:py-20">
+    <section className="bg-[#F8FAFC] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">
@@ -98,7 +98,7 @@ export function Testimonials() {
             <motion.div
               key={t.name}
               variants={cardVariants}
-              className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-shadow duration-300 hover:shadow-md"
+              className="flex flex-col rounded-2xl border-0 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
             >
               {/* Star rating */}
               <div className="flex gap-0.5">

@@ -80,7 +80,7 @@ export function Features() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" className="bg-white py-16 sm:py-20">
+    <section id="features" className="bg-[#F8FAFC] py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">
@@ -96,7 +96,7 @@ export function Features() {
         {/* Feature grid */}
         <motion.div
           ref={ref}
-          className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -111,7 +111,7 @@ export function Features() {
                   "group relative flex flex-col rounded-2xl border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
                   feature.highlighted
                     ? "border-[#7C3AED]/40 shadow-md shadow-[#7C3AED]/10 ring-1 ring-[#7C3AED]/20"
-                    : "border-[#E2E8F0] hover:border-[#7C3AED]/30"
+                    : "border-[#E2E8F0] shadow-sm hover:border-[#7C3AED]/30"
                 )}
               >
                 {/* Glow effect for highlighted card */}

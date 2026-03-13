@@ -20,7 +20,7 @@ export function PlatformCard({
   return (
     <Card
       className={cn(
-        "transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
+        "transition-all duration-200 shadow-sm border-0 hover:shadow-md hover:scale-[1.02]"
       )}
     >
       <CardContent className="pt-1">

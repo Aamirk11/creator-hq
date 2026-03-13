@@ -91,7 +91,7 @@ export function WaitlistForm() {
       `}</style>
 
       {/* Purple gradient background tint */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#7C3AED]/[0.04] via-[#7C3AED]/[0.06] to-[#EC4899]/[0.03]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#7C3AED]/[0.08] via-[#7C3AED]/[0.12] to-[#EC4899]/[0.06]" />
 
       {/* Gradient accent blob */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-gradient-to-b from-[#7C3AED]/8 via-[#EC4899]/5 to-transparent blur-3xl" />
@@ -120,7 +120,7 @@ export function WaitlistForm() {
 
         {submitted ? (
           <motion.div
-            className="mx-auto mt-10 flex max-w-md flex-col items-center rounded-2xl border border-[#10B981]/30 bg-[#10B981]/5 p-8 text-center"
+            className="mx-auto mt-10 flex max-w-md flex-col items-center rounded-2xl border border-[#10B981]/30 bg-[#10B981]/10 p-8 text-center shadow-lg"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
@@ -136,11 +136,15 @@ export function WaitlistForm() {
         ) : (
           <motion.form
             onSubmit={handleSubmit}
-            className="waitlist-gradient-border mx-auto mt-10 flex max-w-md flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm"
+            className="waitlist-gradient-border mx-auto mt-10 flex max-w-md flex-col gap-4 rounded-2xl bg-white p-8 shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
+            <p className="text-center text-base font-semibold text-[#0F172A]">
+              Reserve your spot
+            </p>
+
             {/* Email */}
             <div>
               <label

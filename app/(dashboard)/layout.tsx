@@ -37,7 +37,7 @@ export default function DashboardLayout({
 }) {
   return (
     <CreatorDataContext.Provider value={creatorData}>
-      <div className="flex h-screen bg-[#FAFAFA]">
+      <div className="flex h-screen bg-[#F1F5F9]">
         <Sidebar />
         <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
           <Topbar />

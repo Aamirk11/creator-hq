@@ -59,7 +59,7 @@ const stepReveal = {
 
 export function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA] py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
       {/* Background accent */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-gradient-to-br from-[#7C3AED]/5 via-[#EC4899]/3 to-transparent blur-3xl" />
 
@@ -100,7 +100,7 @@ export function HowItWorks() {
             <motion.div
               key={number}
               variants={stepReveal}
-              className="relative flex flex-col items-center text-center"
+              className="relative flex flex-col items-center text-center rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm"
             >
               {/* Number circle */}
               <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] text-xl font-bold text-white shadow-lg shadow-[#7C3AED]/20">
