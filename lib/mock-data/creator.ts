@@ -1,0 +1,53 @@
+import { Creator } from "@/lib/types";
+
+export const creator: Creator = {
+  id: "maya-torres",
+  name: "Maya Torres",
+  email: "maya@mayatorres.com",
+  avatar: "",
+  bio: "Skincare & beauty creator helping people build simple, effective routines",
+  niche: "Skincare & Beauty",
+  platforms: [
+    {
+      platform: "youtube",
+      connected: true,
+      username: "@MayaTorresSkin",
+      followers: 89000,
+      lastSync: "2026-03-13T08:00:00Z",
+      totalRevenue: 38200,
+      monthlyRevenue: 3200,
+      iconColor: "#FF0000",
+    },
+    {
+      platform: "tiktok",
+      connected: true,
+      username: "@mayaskin",
+      followers: 142000,
+      lastSync: "2026-03-13T08:00:00Z",
+      totalRevenue: 22400,
+      monthlyRevenue: 1880,
+      iconColor: "#00F2EA",
+    },
+    {
+      platform: "patreon",
+      connected: true,
+      username: "MayaTorres",
+      followers: 1200,
+      lastSync: "2026-03-13T08:00:00Z",
+      totalRevenue: 14400,
+      monthlyRevenue: 1200,
+      iconColor: "#FF424D",
+    },
+    {
+      platform: "instagram",
+      connected: true,
+      username: "@mayatorresglow",
+      followers: 67000,
+      lastSync: "2026-03-13T08:00:00Z",
+      totalRevenue: 8900,
+      monthlyRevenue: 780,
+      iconColor: "#E4405F",
+    },
+  ],
+  joinedAt: "2024-06-15",
+};
