@@ -1,7 +1,12 @@
 export { Navbar } from "./navbar";
 export { Hero } from "./hero";
+export { PlatformBar } from "./platform-bar";
+export { Problem } from "./problem";
 export { Features } from "./features";
+export { HowItWorks } from "./how-it-works";
+export { DashboardPreview } from "./dashboard-preview";
 export { RphShowcase } from "./rph-showcase";
+export { BeforeAfter } from "./before-after";
 export { Pricing } from "./pricing";
 export { Testimonials } from "./testimonials";
 export { WaitlistForm } from "./waitlist-form";

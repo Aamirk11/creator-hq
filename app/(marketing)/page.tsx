@@ -1,8 +1,13 @@
 import {
   Navbar,
   Hero,
+  PlatformBar,
+  Problem,
   Features,
+  HowItWorks,
+  DashboardPreview,
   RphShowcase,
+  BeforeAfter,
   Pricing,
   Testimonials,
   WaitlistForm,
@@ -15,8 +20,13 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
+        <PlatformBar />
+        <Problem />
         <Features />
+        <HowItWorks />
+        <DashboardPreview />
         <RphShowcase />
+        <BeforeAfter />
         <Pricing />
         <Testimonials />
         <WaitlistForm />

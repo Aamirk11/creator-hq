@@ -2,13 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Users, DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TESTIMONIALS = [
   {
     quote:
-      "CreatorHQ showed me my TikToks earn 10x more per hour than YouTube. I shifted my strategy and doubled my income.",
+      "I was spending 30+ hours a week on YouTube and barely clearing $15/hour. CreatorHQ showed me my Reels were earning $180/hour. I shifted my strategy and my income jumped 40% in two months.",
     name: "Alex Rivera",
     role: "230K lifestyle creator",
     initials: "AR",
@@ -16,20 +16,30 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The tax center alone saved me $4,200 last year. I had no idea I was missing so many deductions.",
+      "The tax center found $4,200 in deductions I completely missed last year. My home office, my ring light, even my phone bill — all deductible. Paid for itself 10x over.",
     name: "Jordan Blake",
     role: "89K fitness creator",
     initials: "JB",
-    color: "bg-[#EC4899]",
+    color: "bg-[#10B981]",
   },
   {
     quote:
-      "I finally know my actual hourly rate. Turns out my 'hobby' content earns more than my day job ever did.",
+      "I used to say yes to every brand deal. CreatorHQ's rate calculator showed me I was charging 60% below market. My next three deals averaged $3,400 instead of $1,500.",
     name: "Sam Chen",
     role: "45K tech creator",
     initials: "SC",
-    color: "bg-[#10B981]",
+    color: "bg-[#F59E0B]",
   },
+];
+
+const TRUST_METRICS = [
+  { icon: Users, label: "2,400+ creators", description: "on the platform" },
+  {
+    icon: DollarSign,
+    label: "$12M+ tracked",
+    description: "in creator revenue",
+  },
+  { icon: Star, label: "4.9\u2605 average rating", description: "from users" },
 ];
 
 const containerVariants = {
@@ -48,9 +58,20 @@ const cardVariants = {
   },
 };
 
+const metricVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
 export function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const metricsRef = useRef<HTMLDivElement>(null);
+  const metricsInView = useInView(metricsRef, { once: true, margin: "-40px" });
 
   return (
     <section className="bg-[#FAFAFA] py-20 sm:py-28">
@@ -58,10 +79,10 @@ export function Testimonials() {
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-            Loved by Creators
+            Creators Are Already Seeing Results
           </h2>
           <p className="mt-4 text-lg text-[#64748B]">
-            Hear from creators who took control of their business.
+            Real creators. Real numbers. Real growth.
           </p>
         </div>
 
@@ -110,6 +131,35 @@ export function Testimonials() {
                   </p>
                   <p className="text-xs text-[#64748B]">{t.role}</p>
                 </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Trust metrics bar */}
+        <motion.div
+          ref={metricsRef}
+          className="mx-auto mt-14 flex max-w-3xl flex-col items-center justify-center gap-8 rounded-2xl border border-[#E2E8F0] bg-white px-8 py-6 sm:flex-row sm:gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate={metricsInView ? "visible" : "hidden"}
+        >
+          {TRUST_METRICS.map((metric, idx) => (
+            <motion.div
+              key={metric.label}
+              variants={metricVariants}
+              className={cn(
+                "flex items-center gap-3 text-center sm:text-left",
+                idx < TRUST_METRICS.length - 1 &&
+                  "sm:border-r sm:border-[#E2E8F0] sm:pr-12"
+              )}
+            >
+              <metric.icon className="size-5 shrink-0 text-[#7C3AED]" />
+              <div>
+                <p className="text-lg font-bold text-[#0F172A]">
+                  {metric.label}
+                </p>
+                <p className="text-xs text-[#64748B]">{metric.description}</p>
               </div>
             </motion.div>
           ))}

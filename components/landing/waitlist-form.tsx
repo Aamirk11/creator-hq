@@ -13,6 +13,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const BENEFIT_PILLS = [
+  "\u2713 Free forever plan",
+  "\u2713 No credit card",
+  "\u2713 Cancel anytime",
+];
+
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [platform, setPlatform] = useState("");
@@ -28,19 +34,34 @@ export function WaitlistForm() {
   return (
     <section
       id="waitlist"
-      className="relative overflow-hidden bg-white py-20 sm:py-28"
+      className="relative overflow-hidden py-20 sm:py-28"
     >
-      {/* Gradient accent */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-gradient-to-b from-[#7C3AED]/5 via-[#EC4899]/3 to-transparent blur-3xl" />
+      {/* Purple gradient background tint */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#7C3AED]/[0.04] via-[#7C3AED]/[0.06] to-[#EC4899]/[0.03]" />
+
+      {/* Gradient accent blob */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-gradient-to-b from-[#7C3AED]/8 via-[#EC4899]/5 to-transparent blur-3xl" />
 
       <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-            Ready to Take Control of Your Creator Business?
+            Join 2,400+ Creators Already on the Waitlist
           </h2>
           <p className="mt-4 text-lg text-[#64748B]">
-            Join the waitlist and be the first to get access.
+            Get early access + lifetime Pro pricing when we launch.
           </p>
+
+          {/* Benefit pills */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            {BENEFIT_PILLS.map((pill) => (
+              <span
+                key={pill}
+                className="rounded-full bg-[#7C3AED]/8 px-3.5 py-1.5 text-xs font-medium text-[#7C3AED]"
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
         </div>
 
         {submitted ? (
@@ -52,11 +73,10 @@ export function WaitlistForm() {
           >
             <CheckCircle2 className="size-12 text-[#10B981]" />
             <h3 className="mt-4 text-xl font-bold text-[#0F172A]">
-              You&apos;re on the list!
+              You&apos;re in! 🎉
             </h3>
             <p className="mt-2 text-sm text-[#64748B]">
-              We&apos;ll send you early access as soon as it&apos;s ready. Keep
-              creating.
+              Check your email for next steps.
             </p>
           </motion.div>
         ) : (
@@ -127,12 +147,12 @@ export function WaitlistForm() {
               type="submit"
               className="mt-2 h-12 w-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-base font-semibold text-white shadow-lg shadow-[#7C3AED]/25 transition-all hover:shadow-xl hover:shadow-[#7C3AED]/30 hover:brightness-110"
             >
-              Join the Waitlist
+              Get Early Access
               <ArrowRight className="ml-2 size-4" />
             </Button>
 
             <p className="text-center text-xs text-[#64748B]">
-              No spam. Unsubscribe anytime.
+              We&apos;ll never spam you. Unsubscribe anytime.
             </p>
           </motion.form>
         )}

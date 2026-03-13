@@ -11,44 +11,51 @@ import {
   Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GradientText } from "@/components/shared";
 
 const FEATURES = [
   {
     icon: Clock,
     title: "Revenue Per Hour",
+    label: "Know Your Real Rate",
     description:
-      "See exactly which content earns the most per hour invested. Stop guessing and start optimizing.",
+      "See exactly how much you earn per hour on every piece of content. Stop wasting time on content that doesn't pay.",
     highlighted: true,
   },
   {
     icon: LayoutDashboard,
-    title: "Multi-Platform Dashboard",
+    title: "Smart Dashboard",
+    label: "All Platforms, One View",
     description:
-      "YouTube, TikTok, Instagram, Patreon — all in one view. No more tab-switching.",
+      "YouTube, TikTok, Instagram, Patreon — stop tab-switching. See your entire business at a glance.",
   },
   {
     icon: Handshake,
     title: "Brand Deal Finder",
+    label: "Know Your Worth",
     description:
-      "Find brands that match your niche and know your worth. Never undersell yourself again.",
+      "Stop underselling yourself. See what brands pay creators like you, and pitch with confidence.",
   },
   {
     icon: Receipt,
-    title: "Tax Center",
+    title: "Tax Autopilot",
+    label: "Never Panic at Tax Time",
     description:
-      "Quarterly estimates, deductions, and CPA-ready reports. Tax season without the panic.",
+      "Quarterly estimates calculated automatically. Deductions tracked. CPA-ready reports in one click.",
   },
   {
     icon: CreditCard,
     title: "Expense Tracking",
+    label: "Every Dollar, Accounted For",
     description:
-      "Track every business expense and never miss a deduction. Keep more of what you earn.",
+      "Snap receipts. Track subscriptions. Know your real profit — not just your gross revenue.",
   },
   {
     icon: Sparkles,
     title: "AI Insights",
+    label: "Your Business Strategist",
     description:
-      "Get actionable recommendations to maximize your earnings. Your data, made useful.",
+      "Get actionable recommendations: what to make more of, what to cut, and where the money really is.",
   },
 ];
 
@@ -78,10 +85,11 @@ export function Features() {
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-            Everything You Need to Run Your Creator Business
+            One Dashboard.{" "}
+            <GradientText>Zero Guesswork.</GradientText>
           </h2>
           <p className="mt-4 text-lg text-[#64748B]">
-            One platform to track, optimize, and grow your creator income.
+            Every tool you need to run your creator business like a CEO.
           </p>
         </div>
 
@@ -121,9 +129,22 @@ export function Features() {
                 >
                   <Icon className="size-5" />
                 </div>
-                <h3 className="relative mt-4 text-base font-semibold text-[#0F172A]">
+
+                <p
+                  className={cn(
+                    "relative mt-4 text-xs font-bold uppercase tracking-wider",
+                    feature.highlighted
+                      ? "text-[#7C3AED]"
+                      : "text-[#64748B]"
+                  )}
+                >
+                  {feature.label}
+                </p>
+
+                <h3 className="relative mt-1.5 text-base font-semibold text-[#0F172A]">
                   {feature.title}
                 </h3>
+
                 <p className="relative mt-2 text-sm leading-relaxed text-[#64748B]">
                   {feature.description}
                 </p>
