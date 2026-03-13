@@ -19,7 +19,7 @@ export function StatCard({ label, value, change, prefix, suffix }: StatCardProps
   return (
     <Card
       className={cn(
-        "transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 border-l-2 border-l-[#7C3AED]"
+        "transition-all duration-200 hover:shadow-md hover:scale-[1.02] border-l-2 border-l-[#7C3AED]/70 hover:border-l-[#6D28D9]"
       )}
     >
       <CardContent className="p-4">

@@ -2,6 +2,7 @@
 
 import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import {
   StatCard,
   RevenueChart,
@@ -14,6 +15,7 @@ export default function DashboardPage() {
   const { creator, dashboardStats } = useCreatorData();
 
   return (
+    <PageTransition>
     <div className="space-y-4">
       <PageHeader title="Dashboard" description={`Welcome back, ${creator.name.split(" ")[0]}`} />
 
@@ -60,5 +62,6 @@ export default function DashboardPage() {
           ))}
       </div>
     </div>
+    </PageTransition>
   );
 }

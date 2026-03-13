@@ -3,6 +3,7 @@
 import { Plus } from "lucide-react";
 import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import { Button } from "@/components/ui/button";
 import {
   ExpenseChart,
@@ -15,6 +16,7 @@ export default function ExpensesPage() {
   const { expenses, subscriptions } = useCreatorData();
 
   return (
+    <PageTransition>
     <div className="space-y-4">
       <PageHeader
         title="Expenses"
@@ -37,5 +39,6 @@ export default function ExpensesPage() {
       {/* Expense Table */}
       <ExpenseTable expenses={expenses} />
     </div>
+    </PageTransition>
   );
 }

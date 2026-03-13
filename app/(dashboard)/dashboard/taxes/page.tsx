@@ -3,6 +3,7 @@
 import { Download } from "lucide-react";
 import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import { TaxSummary, QuarterlyTracker, DeductionList } from "@/components/taxes";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -11,6 +12,7 @@ export default function TaxesPage() {
   const { taxSummary, quarterlyPayments, deductions } = useCreatorData();
 
   return (
+    <PageTransition>
     <div className="space-y-4">
       <PageHeader
         title="Tax Center"
@@ -38,5 +40,6 @@ export default function TaxesPage() {
         </Button>
       </div>
     </div>
+    </PageTransition>
   );
 }

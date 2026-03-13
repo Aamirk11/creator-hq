@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -11,7 +12,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { formatCurrency } from "@/lib/utils/format";
-import { Calculator } from "lucide-react";
+import { AnimatedCounter } from "@/components/shared";
+import { Calculator, Copy } from "lucide-react";
+import { toast } from "sonner";
 
 const platformCPM: Record<string, number> = {
   youtube: 0.025,
@@ -45,6 +48,11 @@ export function RateCalculator() {
   const [platform, setPlatform] = useState<string>("youtube");
 
   const suggestedRate = calculateRate(followers, engagementRate, platform);
+
+  const handleCopyRate = () => {
+    navigator.clipboard.writeText(formatCurrency(suggestedRate));
+    toast.success("Rate copied! Use this in your next pitch.");
+  };
 
   return (
     <Card className="border-[#7C3AED]/20">
@@ -118,11 +126,20 @@ export function RateCalculator() {
         <div className="mt-5 p-4 rounded-lg bg-gradient-to-r from-[#7C3AED]/5 to-[#EC4899]/5 border border-[#7C3AED]/15 text-center">
           <p className="text-[11px] text-[#64748B] mb-1">Suggested Rate</p>
           <p className="text-3xl font-bold text-[#7C3AED]">
-            {formatCurrency(suggestedRate)}
+            <AnimatedCounter value={suggestedRate} prefix="$" />
           </p>
           <p className="text-[10px] text-[#64748B] mt-1">
             per sponsored post on {platformLabels[platform]}
           </p>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mt-2 text-xs text-[#7C3AED] hover:text-[#7C3AED]/80 hover:bg-[#7C3AED]/5 gap-1.5"
+            onClick={handleCopyRate}
+          >
+            <Copy className="w-3.5 h-3.5" />
+            Copy Rate
+          </Button>
         </div>
       </CardContent>
     </Card>

@@ -96,6 +96,52 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20">
+      <style jsx>{`
+        @keyframes shimmer-border {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+        .pro-card-glow {
+          position: relative;
+        }
+        .pro-card-glow::before {
+          content: '';
+          position: absolute;
+          inset: -1px;
+          border-radius: 1rem;
+          padding: 2px;
+          background: linear-gradient(
+            90deg,
+            #7C3AED 0%,
+            #EC4899 25%,
+            #7C3AED 50%,
+            #EC4899 75%,
+            #7C3AED 100%
+          );
+          background-size: 200% 100%;
+          animation: shimmer-border 4s linear infinite;
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .pro-card-glow::after {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border-radius: 1.25rem;
+          background: linear-gradient(
+            90deg,
+            rgba(124,58,237,0.15) 0%,
+            rgba(236,72,153,0.1) 50%,
+            rgba(124,58,237,0.15) 100%
+          );
+          filter: blur(12px);
+          pointer-events: none;
+          z-index: -1;
+        }
+      `}</style>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mx-auto max-w-2xl text-center">
@@ -167,7 +213,7 @@ export function Pricing() {
                 className={cn(
                   "relative flex flex-col rounded-2xl border bg-white p-6 transition-shadow duration-300",
                   tier.popular
-                    ? "border-[#7C3AED] shadow-xl shadow-[#7C3AED]/10 ring-1 ring-[#7C3AED]/30 lg:scale-105 lg:z-10"
+                    ? "pro-card-glow border-transparent shadow-xl shadow-[#7C3AED]/10 lg:scale-105 lg:z-10"
                     : "border-[#E2E8F0] hover:shadow-lg"
                 )}
               >

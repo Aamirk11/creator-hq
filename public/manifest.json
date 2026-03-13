@@ -1,0 +1,17 @@
+{
+  "name": "CreatorHQ",
+  "short_name": "CreatorHQ",
+  "description": "Your entire creator business in one dashboard",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#7C3AED",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

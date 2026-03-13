@@ -40,6 +40,60 @@ const floatAnimation = {
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#FAFAFA] pt-28 pb-16 sm:pt-36 sm:pb-20">
+      {/* Animated aurora gradient mesh background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute top-[-10%] left-[15%] h-[500px] w-[500px] rounded-full blur-3xl"
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.20) 0%, transparent 70%)",
+            animation: "aurora-drift-1 12s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute top-[10%] right-[10%] h-[450px] w-[450px] rounded-full blur-3xl"
+          style={{
+            background: "radial-gradient(circle, rgba(236,72,153,0.15) 0%, transparent 70%)",
+            animation: "aurora-drift-2 14s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute bottom-[5%] left-[30%] h-[400px] w-[400px] rounded-full blur-3xl"
+          style={{
+            background: "radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%)",
+            animation: "aurora-drift-3 16s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute top-[40%] right-[30%] h-[350px] w-[350px] rounded-full blur-3xl"
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)",
+            animation: "aurora-drift-4 18s ease-in-out infinite",
+          }}
+        />
+      </div>
+      <style jsx>{`
+        @keyframes aurora-drift-1 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -20px) scale(1.05); }
+          66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+        @keyframes aurora-drift-2 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-25px, 20px) scale(1.08); }
+          66% { transform: translate(15px, -25px) scale(0.92); }
+        }
+        @keyframes aurora-drift-3 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(20px, 25px) scale(0.95); }
+          66% { transform: translate(-30px, -10px) scale(1.05); }
+        }
+        @keyframes aurora-drift-4 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-15px, -30px) scale(1.1); }
+          66% { transform: translate(25px, 10px) scale(0.9); }
+        }
+      `}</style>
+
       {/* Subtle gradient orb background */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-gradient-to-br from-[#7C3AED]/10 via-[#EC4899]/5 to-transparent blur-3xl" />
 

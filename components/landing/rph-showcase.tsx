@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Eye, Clock, DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { GradientText } from "@/components/shared";
+import { AnimatedCounter, GradientText } from "@/components/shared";
 import { Button } from "@/components/ui/button";
 
 const fadeUp = {
@@ -83,9 +83,12 @@ export function RphShowcase() {
               </span>
 
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-6xl font-extrabold tracking-tight text-[#10B981] sm:text-7xl">
-                  $1,129
-                </span>
+                <AnimatedCounter
+                  value={1129}
+                  prefix="$"
+                  duration={2.2}
+                  className="text-6xl font-extrabold tracking-tight text-[#10B981] sm:text-7xl"
+                />
                 <span className="text-xl font-semibold text-[#10B981]/60">
                   /hour
                 </span>
@@ -139,9 +142,12 @@ export function RphShowcase() {
               </span>
 
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-6xl font-extrabold tracking-tight text-[#94A3B8] sm:text-7xl">
-                  $14
-                </span>
+                <AnimatedCounter
+                  value={14}
+                  prefix="$"
+                  duration={1.5}
+                  className="text-6xl font-extrabold tracking-tight text-[#94A3B8] sm:text-7xl"
+                />
                 <span className="text-xl font-semibold text-[#94A3B8]/50">
                   /hour
                 </span>

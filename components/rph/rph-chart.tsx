@@ -31,6 +31,18 @@ interface ChartPayload {
   hours: number;
 }
 
+/* Unique gradient IDs per platform to avoid collisions */
+const PLATFORM_GRADIENT_MAP: Record<string, { id: string; lightColor: string }> = {
+  youtube: { id: "grad-youtube", lightColor: "#FF6B6B" },
+  tiktok: { id: "grad-tiktok", lightColor: "#5CFACA" },
+  instagram: { id: "grad-instagram", lightColor: "#F0A0F0" },
+  blog: { id: "grad-blog", lightColor: "#93C5FD" },
+};
+
+function getGradientId(platform: string): string {
+  return PLATFORM_GRADIENT_MAP[platform]?.id ?? "grad-default";
+}
+
 function CustomTooltip({
   active,
   payload,
@@ -40,16 +52,20 @@ function CustomTooltip({
 }) {
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
+  const platformColor = getPlatformColor(data.platform);
   return (
-    <div className="bg-white border border-border rounded-lg shadow-lg p-3 text-sm max-w-[280px]">
-      <p className="font-semibold text-[#0F172A] mb-1 truncate">{data.fullTitle}</p>
-      <div className="space-y-0.5 text-[#64748B]">
-        <p>
-          <span className="font-medium text-[#0F172A]">{formatCurrency(data.rph)}/hr</span>
-        </p>
-        <p>
-          {formatCurrency(data.revenue)} revenue in {data.hours}h
-        </p>
+    <div className="bg-white border border-border rounded-xl shadow-xl p-4 text-sm max-w-[300px]">
+      <p className="font-semibold text-[#0F172A] mb-2 leading-snug">{data.fullTitle}</p>
+      <div className="space-y-1.5 text-[#64748B]">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: platformColor }} />
+          <span className="capitalize text-xs font-medium">{data.platform}</span>
+        </div>
+        <p className="text-base font-bold text-[#0F172A]">{formatCurrency(data.rph)}/hr</p>
+        <div className="flex items-center justify-between text-xs pt-1 border-t border-border/50">
+          <span>Revenue: <span className="font-medium text-[#0F172A]">{formatCurrency(data.revenue)}</span></span>
+          <span>Hours: <span className="font-medium text-[#0F172A]">{data.hours}h</span></span>
+        </div>
       </div>
     </div>
   );
@@ -83,6 +99,20 @@ export function RphChart({ pieces }: RphChartProps) {
             data={data}
             margin={{ top: 0, right: 30, left: 10, bottom: 0 }}
           >
+            {/* Gradient definitions */}
+            <defs>
+              {Object.entries(PLATFORM_GRADIENT_MAP).map(([platform, { id, lightColor }]) => (
+                <linearGradient key={id} id={id} x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor={lightColor} stopOpacity={0.7} />
+                  <stop offset="100%" stopColor={getPlatformColor(platform)} stopOpacity={0.95} />
+                </linearGradient>
+              ))}
+              <linearGradient id="grad-default" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#94A3B8" stopOpacity={0.6} />
+                <stop offset="100%" stopColor="#64748B" stopOpacity={0.9} />
+              </linearGradient>
+            </defs>
+
             <XAxis
               type="number"
               tickFormatter={(v: number) => `$${v}`}
@@ -103,8 +133,7 @@ export function RphChart({ pieces }: RphChartProps) {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={getPlatformColor(entry.platform)}
-                  fillOpacity={0.85}
+                  fill={`url(#${getGradientId(entry.platform)})`}
                 />
               ))}
             </Bar>

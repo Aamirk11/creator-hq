@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { StatusBadge } from "@/components/shared";
@@ -21,8 +22,19 @@ interface DealCardProps {
 }
 
 export function DealCard({ deal, onDraftPitch }: DealCardProps) {
+  const [barAnimated, setBarAnimated] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setBarAnimated(true), 150);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <Card className="group hover:shadow-md transition-all duration-200 border-border/60">
+    <Card
+      ref={cardRef}
+      className="group transition-all duration-200 border-border/60 hover:scale-[1.01] hover:shadow-lg"
+    >
       <CardContent className="p-5">
         {/* Header: Brand info + Status */}
         <div className="flex items-start justify-between mb-4">
@@ -45,7 +57,7 @@ export function DealCard({ deal, onDraftPitch }: DealCardProps) {
           <StatusBadge status={deal.status} />
         </div>
 
-        {/* Match percentage bar */}
+        {/* Match percentage bar — animated on mount */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs font-medium text-[#64748B]">
@@ -57,8 +69,8 @@ export function DealCard({ deal, onDraftPitch }: DealCardProps) {
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-500"
-              style={{ width: `${deal.matchPercentage}%` }}
+              className="h-full rounded-full bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-600 transition-all duration-700 ease-out"
+              style={{ width: barAnimated ? `${deal.matchPercentage}%` : "0%" }}
             />
           </div>
         </div>
@@ -118,7 +130,7 @@ export function DealCard({ deal, onDraftPitch }: DealCardProps) {
           </Button>
           <Button
             size="sm"
-            className="flex-1 text-xs bg-[#7C3AED] hover:bg-[#7C3AED]/90 text-white"
+            className="flex-1 text-xs bg-[#7C3AED] hover:bg-[#7C3AED]/90 text-white shadow-md shadow-[#7C3AED]/20"
             onClick={() => onDraftPitch(deal)}
           >
             <Sparkles className="w-3 h-3 mr-1" />

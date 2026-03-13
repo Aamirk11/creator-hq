@@ -1,12 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import { DealCard, DealKanban, PitchModal, RateCalculator } from "@/components/deals";
 import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { BrandDeal } from "@/lib/types";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Handshake, KanbanSquare } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Handshake, KanbanSquare, DollarSign } from "lucide-react";
+import { formatCurrency } from "@/lib/utils/format";
 
 export default function DealsPage() {
   const { brandDeals } = useCreatorData();
@@ -23,12 +26,38 @@ export default function DealsPage() {
     (d) => d.status === "prospect" || d.status === "pitched"
   );
 
+  // Pipeline value: sum of all non-completed deals
+  const pipelineValue = useMemo(() => {
+    return brandDeals
+      .filter((d) => d.status !== "completed")
+      .reduce((sum, d) => sum + d.value, 0);
+  }, [brandDeals]);
+
   return (
+    <PageTransition>
     <div>
       <PageHeader
         title="Brand Deals"
         description="Find brands, pitch, and track partnerships"
       />
+
+      {/* Pipeline value summary */}
+      <Card className="mb-4 p-4 border-[#7C3AED]/15 bg-gradient-to-r from-[#7C3AED]/[0.03] to-transparent">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-lg bg-[#7C3AED]/10 flex items-center justify-center">
+            <DollarSign className="w-4.5 h-4.5 text-[#7C3AED]" />
+          </div>
+          <div>
+            <p className="text-xs font-medium text-[#64748B]">Pipeline Value</p>
+            <p className="text-2xl font-bold text-[#0F172A]">
+              {formatCurrency(pipelineValue)}
+            </p>
+          </div>
+          <p className="ml-auto text-[11px] text-[#64748B]">
+            {brandDeals.filter((d) => d.status !== "completed").length} active deals
+          </p>
+        </div>
+      </Card>
 
       <Tabs defaultValue="recommended" className="space-y-4">
         <TabsList>
@@ -85,5 +114,6 @@ export default function DealsPage() {
         onOpenChange={setPitchOpen}
       />
     </div>
+    </PageTransition>
   );
 }

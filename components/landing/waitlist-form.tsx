@@ -42,6 +42,54 @@ export function WaitlistForm() {
       id="waitlist"
       className="relative overflow-hidden py-16 sm:py-20"
     >
+      <style jsx>{`
+        @keyframes waitlist-border-spin {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .waitlist-gradient-border {
+          position: relative;
+        }
+        .waitlist-gradient-border::before {
+          content: '';
+          position: absolute;
+          inset: -1.5px;
+          border-radius: 1rem;
+          padding: 1.5px;
+          background: linear-gradient(
+            270deg,
+            rgba(124,58,237,0.4),
+            rgba(236,72,153,0.3),
+            rgba(59,130,246,0.2),
+            rgba(236,72,153,0.3),
+            rgba(124,58,237,0.4)
+          );
+          background-size: 300% 300%;
+          animation: waitlist-border-spin 6s ease infinite;
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          pointer-events: none;
+        }
+        @keyframes btn-shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .btn-shimmer-hover:hover {
+          background-image: linear-gradient(
+            110deg,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0) 40%,
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 60%,
+            rgba(255,255,255,0) 100%
+          );
+          background-size: 200% 100%;
+          animation: btn-shimmer 2s ease-in-out infinite;
+        }
+      `}</style>
+
       {/* Purple gradient background tint */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#7C3AED]/[0.04] via-[#7C3AED]/[0.06] to-[#EC4899]/[0.03]" />
 
@@ -88,7 +136,7 @@ export function WaitlistForm() {
         ) : (
           <motion.form
             onSubmit={handleSubmit}
-            className="mx-auto mt-10 flex max-w-md flex-col gap-4"
+            className="waitlist-gradient-border mx-auto mt-10 flex max-w-md flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -151,7 +199,7 @@ export function WaitlistForm() {
             {/* Submit */}
             <Button
               type="submit"
-              className="mt-2 h-12 w-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-base font-semibold text-white shadow-lg shadow-[#7C3AED]/25 transition-all hover:shadow-xl hover:shadow-[#7C3AED]/30 hover:brightness-110"
+              className="btn-shimmer-hover mt-2 h-12 w-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-base font-semibold text-white shadow-lg shadow-[#7C3AED]/25 transition-all hover:shadow-xl hover:shadow-[#7C3AED]/30 hover:brightness-110"
             >
               Get Early Access
               <ArrowRight className="ml-2 size-4" />

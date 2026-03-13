@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { LayoutGrid, LayoutList } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import {
   HeroComparison,
   InsightsPanel,
@@ -58,6 +59,7 @@ export default function RevenuePerHourPage() {
   }, [contentPieces]);
 
   return (
+    <PageTransition>
     <div className="space-y-4">
       <PageHeader
         title="Revenue Per Hour"
@@ -170,5 +172,6 @@ export default function RevenuePerHourPage() {
         <RphChart pieces={filteredAndSorted} />
       </motion.div>
     </div>
+    </PageTransition>
   );
 }

@@ -81,7 +81,18 @@ export function DashboardPreview() {
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          <div className="rounded-2xl border border-[#E2E8F0] shadow-2xl bg-white overflow-hidden">
+          <div
+            className="rounded-2xl border border-[#E2E8F0] bg-white overflow-hidden transition-transform duration-500 ease-out"
+            style={{
+              boxShadow: "0 20px 60px -15px rgba(124,58,237,0.3), 0 8px 24px -8px rgba(0,0,0,0.08)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "perspective(1200px) rotateX(2deg) rotateY(-1deg) scale(1.01)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)";
+            }}
+          >
             {/* Purple gradient top border */}
             <div className="h-[3px] bg-gradient-to-r from-[#7C3AED] to-[#EC4899]" />
 

@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS } from "@/lib/utils/constants";
+import { Logo } from "@/components/shared";
 
 const iconMap = {
   LayoutDashboard,
@@ -36,9 +37,7 @@ export function Sidebar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 h-16 border-b border-[#E2E8F0]">
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#7C3AED] text-white font-bold text-sm shrink-0">
-          C
-        </div>
+        <Logo size={32} className="shrink-0" />
         <span
           className={cn(
             "font-bold text-[#0F172A] text-lg transition-all duration-300 overflow-hidden whitespace-nowrap",
@@ -63,12 +62,15 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200",
+                "relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                 isActive
                   ? "bg-[#7C3AED]/10 text-[#7C3AED]"
                   : "text-[#64748B] hover:bg-[#FAFAFA] hover:text-[#0F172A]"
               )}
             >
+              {isActive && (
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#7C3AED] rounded-r-full" />
+              )}
               {Icon && (
                 <Icon
                   className={cn(
@@ -95,12 +97,15 @@ export function Sidebar() {
         <Link
           href="/dashboard/settings"
           className={cn(
-            "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200",
+            "relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
             pathname === "/dashboard/settings"
               ? "bg-[#7C3AED]/10 text-[#7C3AED]"
               : "text-[#64748B] hover:bg-[#FAFAFA] hover:text-[#0F172A]"
           )}
         >
+          {pathname === "/dashboard/settings" && (
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#7C3AED] rounded-r-full" />
+          )}
           <Settings
             className={cn(
               "w-5 h-5 shrink-0",

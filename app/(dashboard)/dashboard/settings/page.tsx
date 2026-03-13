@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCreatorData } from "@/lib/hooks/use-creator-data";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageTransition } from "@/components/layout/page-transition";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -65,6 +66,7 @@ export default function SettingsPage() {
     .toUpperCase();
 
   return (
+    <PageTransition>
     <div className="space-y-6">
       <PageHeader
         title="Settings"
@@ -157,5 +159,6 @@ export default function SettingsPage() {
         </Card>
       </div>
     </div>
+    </PageTransition>
   );
 }
